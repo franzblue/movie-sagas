@@ -2,6 +2,20 @@ const express = require('express');
 const router = express.Router();
 const pool = require('../modules/pool')
 
+// GET request
+router.get('/', (req, res) => {
+  console.log('in serverside GET');
+  const queryText = `SELECT * FROM movies`;
+  pool.query(queryText)
+      .then( (result) => {
+          res.send(result.rows);
+      })
+      .catch( (error) => {
+          console.log(`Error on query ${error}`);
+          res.sendStatus(500);
+      });
+})
+
 router.post('/', (req, res) => {
   console.log(req.body);
   // RETURNING "id" will give us back the id of the created movie
