@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import MovieItem from '../MovieItem/MovieItem';
 
 
 // this component will GET movies from database
@@ -19,12 +20,20 @@ class List extends Component {
     render() {
         return(
             <>
-            <h1>Movies List</h1>
-            {JSON.stringify(this.props.reduxState.movies)}
+            {this.props.reduxState.movies.map((movie) => {
+                return <ul key={movie.id}>
+                            <MovieItem movie={movie} />
+                        </ul>
+            })}
             </>
         )
     }
 }
+
+
+// { props.reduxStore.bookList.map( (book, index) => 
+//     <li key={index}>{book.title} by {book.author}</li>  
+//   )}
 
 const putReduxStateOnProps = (reduxState) => ({
     reduxState
