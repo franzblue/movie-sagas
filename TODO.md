@@ -1,17 +1,18 @@
 ## Database
 - [] create junction table between movies and genre
-- [] buidl GET flow
+- [] build GET flow
 
             <!-- template for junction table -->
 <!-- `INSERT INTO "movies_genres" ("movies_id", "genres_id")
       VALUES  ($1, $2);` -->
 
-## App.ja
+## App.js
 - [] build out components
     - [] List component
         - [] aka homepage
     - [] Details component
         - [] shows all details, including genres
+            - [] upon click tie together movie.id with movie details
         - HINT you can make GET request for specific movie
         - [] 'Back to List' button
     - [] Add movie component

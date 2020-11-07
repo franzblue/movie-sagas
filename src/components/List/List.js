@@ -19,6 +19,7 @@ class List extends Component {
 
     render() {
         return(
+            // need to map out movies data and pass it down to item component
             <>
             {this.props.reduxState.movies.map((movie) => {
                 return <ul key={movie.id}>
@@ -29,11 +30,6 @@ class List extends Component {
         )
     }
 }
-
-
-// { props.reduxStore.bookList.map( (book, index) => 
-//     <li key={index}>{book.title} by {book.author}</li>  
-//   )}
 
 const putReduxStateOnProps = (reduxState) => ({
     reduxState
