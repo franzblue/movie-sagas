@@ -32,9 +32,10 @@ function* getMoviesFromDatabase() {
     }
 }
 
-function* getDetailsForThisMovie() {
+function* getDetailsForThisMovie(action) {
+    console.log('in movie details generator function', action);
     try {
-        const movieDetails = yield axios.get('/api/movie/:id') // not sure if this will work as planned
+        const movieDetails = yield axios.get(`/api/movie/${action.payload}`) // not sure if this will work as planned
         console.log('inside getDetails generator function with', movieDetails.data);
         yield put( {type: 'SET_DETAILS', payload: movieDetails.data});
     } catch (error) {
