@@ -3,6 +3,7 @@ import { withRouter } from 'react-router-dom';
 
 class Details extends Component {
 
+    // function to send user back to homepage
     returnToHome = () => {
         console.log('clicked return to home');
         this.props.history.push('/');
@@ -10,12 +11,10 @@ class Details extends Component {
 
     render() {
         return(
-            <>
-             <h2>Details</h2>
              <button onClick={this.returnToHome}>Homepage</button>
-            </>
         )
     }
 }
 
+            // withRouter for props.history.push
 export default withRouter(Details);
