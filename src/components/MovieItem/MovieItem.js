@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import axios from 'axios'
 
+// withRouter to enable history.push to Details page
+import { withRouter } from 'react-router-dom';
+
 
 // component with movies data mapped out into this.props.movie
 class MovieItem extends Component {
@@ -15,13 +18,14 @@ class MovieItem extends Component {
     posterClick = () => {
         console.log('clicked on a poster', this.props.movie);
         // dispatch to Saga and reducer
-        this.props.dispatch( { type: 'GET_DETAILS', payload: this.props.movie.id})
+        this.props.dispatch( { type: 'GET_DETAILS', payload: this.props.movie});
+        this.props.history.push('/details');
 
-        // mauybe instead have the axios.get request here
-        // can use 'api/movie/:${this.props.movie.id}' ???
+        // maybe instead have the axios.get request here
+        // can use 'api/details/:${this.props.movie.id}' ???
 
 
-        // axios.get(`api/movie/${this.props.movie.id}`).then((response) => {
+        // axios.get(`api/details/${this.props.movie.id}`).then((response) => {
         //     console.log('GET back from server with movie details', response.data);
         //     this.setState( {
         //     movieDetailsObject: response.data
@@ -31,6 +35,8 @@ class MovieItem extends Component {
         // }).catch((error) => {
         //     console.log('GET error', error);
         // })
+
+        // I will most likely not need this GET request but I will not delete it quite yet
     }
 
     render() {
@@ -47,4 +53,4 @@ const putReduxStateOnProps = (reduxState) => ({
     reduxState
   })
 
-export default connect(putReduxStateOnProps)(MovieItem);
+export default connect(putReduxStateOnProps)(withRouter(MovieItem));

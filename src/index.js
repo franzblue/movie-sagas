@@ -33,10 +33,10 @@ function* getMoviesFromDatabase() {
 }
 
 function* getDetailsForThisMovie(action) {
-    console.log('in movie details generator function', action);
+    console.log('in details generator function', action);
     try {
-        const movieDetails = yield axios.get(`/api/movie/${action.payload}`) // not sure if this will work as planned
-        console.log('inside getDetails generator function with', movieDetails.data);
+        const movieDetails = yield axios.get(`/api/details/${action.payload.id}`) // not sure if this will work as planned
+        console.log('inside getDetails generator function with', movieDetails.data[0].title);
         yield put( {type: 'SET_DETAILS', payload: movieDetails.data});
     } catch (error) {
         console.log('error fetching movie details', error);

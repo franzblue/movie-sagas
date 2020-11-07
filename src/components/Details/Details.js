@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
+import { connect } from 'react-redux';
 
 class Details extends Component {
 
@@ -11,10 +12,17 @@ class Details extends Component {
 
     render() {
         return(
+            <>
              <button onClick={this.returnToHome}>Homepage</button>
+             {JSON.stringify(this.props.reduxState.details)}
+             </>
         )
     }
 }
 
             // withRouter for props.history.push
-export default withRouter(Details);
+const putReduxStateOnProps = (reduxState) => ({
+    reduxState
+    })
+
+export default connect(putReduxStateOnProps)(withRouter(Details));
