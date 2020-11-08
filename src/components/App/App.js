@@ -3,6 +3,7 @@ import {HashRouter as Router, Route} from 'react-router-dom';
 import './App.css';
 import List from '../List/List';
 import Details from '../Details/Details';
+import AddMovie from '../AddMovie/AddMovie';
 
 class App extends Component {
   // Renders the entire app on the DOM
@@ -14,6 +15,7 @@ class App extends Component {
           {/* ADD PAGES! */}
           <Route exact path='/' component={List}/>
           <Route exact path='/details' component={Details}/>
+          <Route exact path='/addmovie' component={AddMovie}/>
         </Router>
       </div>
     );
