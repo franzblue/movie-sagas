@@ -29,34 +29,6 @@ class AddMovie extends Component {
         console.log(this.state);
     }
 
-    // handleGenre = (event) => {
-    //     this.setState( {
-    //         genres_id: Number(event.target.value)
-    //     });
-    //     console.log('selected genre is', this.state.genre_id);
-    // }
-    
-    // handleTitle = (event) => {
-    //     this.setState( {
-    //         title: event.target.value
-    //     });
-    //     console.log('selected title is', this.state.title);
-    // }
-
-    // handlePoster = (event) => {
-    //     this.setState( {
-    //         poster: event.target.value
-    //     });
-    //     console.log('selected poster URL is', this.state.poster);
-    // }
-
-    // handleDescription = (event) => {
-    //     this.setState( {
-    //         description: event.target.value
-    //     });
-    //     console.log('selected description is', this.state.description);
-    // }
-
     // function to send user back to homepage
     returnToHome = () => {
     console.log('clicked return to home');
