@@ -11,10 +11,10 @@
     - [] List component
         - [] aka homepage
     - [] Details component
-        - [] shows all details, including genres
-            - [] upon click tie together movie.id with movie details
+        - [x] shows all details, including genres
+            - [x] upon click tie together movie.id with movie details
         - HINT you can make GET request for specific movie
-        - [] 'Back to List' button
+        - [x] 'Back to List' button
     - [] Add movie component
         - [] input field for movie title
         - [] input field for movie poster url

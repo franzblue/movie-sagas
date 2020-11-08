@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
+import Genre from '../Genre/Genre';
 
 class Details extends Component {
 
@@ -15,11 +16,15 @@ class Details extends Component {
             <>
              <button onClick={this.returnToHome}>Homepage</button>
               {/* {JSON.stringify(this.props.reduxState.details)} */}
-               {this.props.reduxState.details[0] && 
-                <p>{this.props.reduxState.details[0].title}</p>}
 
+                <h2>Description</h2>
+              {/* this weird string of code is to prevent duplicate titles */}
+               {this.props.reduxState.details[0] && 
+                <p>{this.props.reduxState.details[0].description}</p>}
+
+                <h2>Genre</h2>
              {this.props.reduxState.details.map((deets) => {
-                return <p>{deets.name}</p>})}
+                return <Genre deets={deets} key={deets.id}/>})}
        
             </>
         )
