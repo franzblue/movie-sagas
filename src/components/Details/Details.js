@@ -14,8 +14,14 @@ class Details extends Component {
         return(
             <>
              <button onClick={this.returnToHome}>Homepage</button>
-             {JSON.stringify(this.props.reduxState.details)}
-             </>
+              {/* {JSON.stringify(this.props.reduxState.details)} */}
+               {this.props.reduxState.details[0] && 
+                <p>{this.props.reduxState.details[0].title}</p>}
+
+             {this.props.reduxState.details.map((deets) => {
+                return <p>{deets.name}</p>})}
+       
+            </>
         )
     }
 }
