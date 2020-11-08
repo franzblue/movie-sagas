@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import axios from 'axios'
 
 // withRouter to enable history.push to Details page
 import { withRouter } from 'react-router-dom';

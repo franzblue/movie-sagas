@@ -2,6 +2,22 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 class AddMovie extends Component {
+
+    componentDidMount = () => {
+        this.getGenre();
+      }
+  
+      // function to grab genres data
+      getGenre = () => {
+        console.log('in get genre')
+        this.props.dispatch({type: 'GET_GENRE'})
+      }
+
+      // function to choose genre for new movie
+      handleChange = (event) => {
+          console.log('handleChange with selected genre:', event);
+      }
+
     render() {
         return(
             <div>
