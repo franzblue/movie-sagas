@@ -22,40 +22,40 @@ class AddMovie extends Component {
 
     // function to choose genre for new movie
 
-    // handleChange = (keyname, event) => {
+    handleChange = (keyname, event) => {
+        this.setState( {
+            [keyname]: event.target.value
+        });
+        console.log(this.state);
+    }
+
+    // handleGenre = (event) => {
     //     this.setState( {
-    //         ...this.state,
-    //         [keyname]: event.target.value
-    //     })
+    //         genres_id: Number(event.target.value)
+    //     });
+    //     console.log('selected genre is', this.state.genre_id);
+    // }
+    
+    // handleTitle = (event) => {
+    //     this.setState( {
+    //         title: event.target.value
+    //     });
+    //     console.log('selected title is', this.state.title);
     // }
 
-    handleGenre = (event) => {
-        this.setState( {
-            genres_id: Number(event.target.value)
-        });
-        console.log('selected genre is', this.state.genre_id);
-    }
-    
-    handleTitle = (event) => {
-        this.setState( {
-            title: event.target.value
-        });
-        console.log('selected title is', this.state.title);
-    }
+    // handlePoster = (event) => {
+    //     this.setState( {
+    //         poster: event.target.value
+    //     });
+    //     console.log('selected poster URL is', this.state.poster);
+    // }
 
-    handlePoster = (event) => {
-        this.setState( {
-            poster: event.target.value
-        });
-        console.log('selected poster URL is', this.state.poster);
-    }
-
-    handleDescription = (event) => {
-        this.setState( {
-            description: event.target.value
-        });
-        console.log('selected description is', this.state.description);
-    }
+    // handleDescription = (event) => {
+    //     this.setState( {
+    //         description: event.target.value
+    //     });
+    //     console.log('selected description is', this.state.description);
+    // }
 
     // function to send user back to homepage
     returnToHome = () => {
@@ -73,16 +73,16 @@ class AddMovie extends Component {
         return(
             <div>
                 <h2>Add Movie</h2>
-                <input type="text" placeholder="title" onChange={this.handleTitle}></input>
-                <input type="text" placeholder="poster URL" onChange={this.handlePoster}></input>
-                <textarea name="description" rows="4" cols="23"onChange={this.handleDescription}></textarea>
+                <input type="text" placeholder="title" onChange={(event) => this.handleChange('title', event)}></input>
+                <input type="text" placeholder="poster URL" onChange={(event) => this.handleChange('poster', event)}></input>
+                <textarea name="description" rows="4" cols="23"onChange={(event) => this.handleChange('description', event)}></textarea>
                 <button onClick={this.returnToHome}>Cancel</button>
 
                 <label htmlFor='genre'>Choose Genre</label>
-                <select name='genre' onChange={(event) => this.handleGenre(event)}>
+                <select name='genre' onChange={(event) => this.handleChange('genres_id', event)}>
                 <option value=''></option>
                 {this.props.reduxState.genres.map((genres) => {
-                    return <option  value={genres.id}>{genres.name}</option>
+                    return <option key={genres.name} value={genres.id}>{genres.name}</option>
                 })}
                 </select>
                 { this.state.genres_id === '' ?
