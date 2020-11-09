@@ -6,7 +6,6 @@
   border: 3px solid blue;
 }
 
-
 .App-header {
   background-color: #222;
   height: 150px;
@@ -27,6 +26,7 @@
   to { transform: rotate(360deg); }
 }
 
+
 h1 {
   text-shadow: 2px 2px #000000;
   opacity: 80%;
@@ -34,4 +34,3 @@ h1 {
 
 ul {
   list-style: none;
-}
