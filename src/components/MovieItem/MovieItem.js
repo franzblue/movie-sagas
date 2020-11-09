@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import './MovieItem.css';
 
 // withRouter to enable history.push to Details page
 import { withRouter } from 'react-router-dom';
@@ -19,10 +20,10 @@ class MovieItem extends Component {
 
     render() {
         return(
-            <>
+            <div className="movie">
                 <li>{this.props.movie.title}</li>
                 <img alt={this.props.movie.id} src={this.props.movie.poster} onClick={this.posterClick}></img>
-            </>
+            </div>
         )
     }
 }
