@@ -57,8 +57,46 @@ VALUES
 ('Superhero');
 
 -- junction table combing movies and genre
-CREATE TABLE "movies_genre" (
+CREATE TABLE "movies_genres" (
 "id" SERIAL PRIMARY KEY,
 "movies_id" INT REFERENCES "movies",
 "genres_id" INT REFERENCES "genres"
 );
+
+-- dummy data for junction table
+INSERT INTO "movies_genres" ("id", "movies_id", "genres_id") 
+VALUES 
+(1,	1, 1),
+(2,	1, 7),
+(3,	1, 11),
+(4,	1, 12),
+(5,	2, 2),
+(6,	2, 8),
+(7,	2, 9),
+(8,	3, 11),
+(9, 3, 13),
+(10, 4, 1),
+(11, 4, 2),
+(12, 5,	6),
+(13, 6,	1),
+(14, 6,	8),
+(15, 7,	1),
+(16, 8,	1),
+(17, 8,	6),
+(18, 9,	2),
+(19, 9,	4),
+(20, 10, 1),
+(21, 10, 7),
+(22, 10, 11),
+(23, 10, 12),
+(24, 11, 1),
+(25, 11, 6),
+(26, 11, 11),
+(27, 12, 3),
+(28, 13, 1),
+(29, 13, 5),
+(30, 13, 6),
+(31, 13, 7),
+(32, 13, 10),
+(33, 14, 2),
+(34, 14, 4);

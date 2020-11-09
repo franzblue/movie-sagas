@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import Genre from '../Genre/Genre';
+import './Details.css';
 
 class Details extends Component {
 
@@ -13,20 +14,22 @@ class Details extends Component {
 
     render() {
         return(
-            <>
-             <button onClick={this.returnToHome}>Homepage</button>
-              {/* {JSON.stringify(this.props.reduxState.details)} */}
+            <div className="deets">
+                <div className="description">
+                    <button onClick={this.returnToHome}>Homepage</button>
+                    <h2>Description</h2>
+                    {/* this weird string of code is to prevent duplicate titles */}
+                    {this.props.reduxState.details[0] && 
+                    <p>{this.props.reduxState.details[0].description}</p>}
+                </div>
+               
 
-                <h2>Description</h2>
-              {/* this weird string of code is to prevent duplicate titles */}
-               {this.props.reduxState.details[0] && 
-                <p>{this.props.reduxState.details[0].description}</p>}
-
-                <h2>Genre</h2>
-             {this.props.reduxState.details.map((deets) => {
-                return <Genre deets={deets} key={deets.id}/>})}
-       
-            </>
+                    <div className="genre">
+                        <h2>Genre</h2>
+                        {this.props.reduxState.details.map((deets) => {
+                        return <Genre deets={deets} key={deets.id}/>})}
+                    </div>
+            </div>
         )
     }
 }

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import MovieItem from '../MovieItem/MovieItem';
+import './List.css';
 
 
 // this component will GET movies from database
@@ -20,13 +21,13 @@ class List extends Component {
     render() {
         return(
             // need to map out movies data and pass it down to item component
-            <>
-            {this.props.reduxState.movies.map((movie) => {
-                return <ul key={movie.id}>
-                            <MovieItem movie={movie} />
-                        </ul>
-            })}
-            </>
+            <div className="list">
+                {this.props.reduxState.movies.map((movie) => {
+                    return <ul key={movie.id}>
+                                <MovieItem movie={movie} />
+                            </ul>
+                })}
+            </div>
         )
     }
 }
