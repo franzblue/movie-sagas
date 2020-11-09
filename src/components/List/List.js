@@ -20,13 +20,13 @@ class List extends Component {
     render() {
         return(
             // need to map out movies data and pass it down to item component
-            <>
-            {this.props.reduxState.movies.map((movie) => {
-                return <ul key={movie.id}>
-                            <MovieItem movie={movie} />
-                        </ul>
-            })}
-            </>
+            <div>
+                {this.props.reduxState.movies.map((movie) => {
+                    return <ul key={movie.id}>
+                                <MovieItem movie={movie} />
+                            </ul>
+                })}
+            </div>
         )
     }
 }

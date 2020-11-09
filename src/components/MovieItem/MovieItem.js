@@ -19,10 +19,10 @@ class MovieItem extends Component {
 
     render() {
         return(
-            <>
+            <div>
                 <li>{this.props.movie.title}</li>
                 <img alt={this.props.movie.id} src={this.props.movie.poster} onClick={this.posterClick}></img>
-            </>
+            </div>
         )
     }
 }

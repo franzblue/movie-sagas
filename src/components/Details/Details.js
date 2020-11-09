@@ -13,20 +13,17 @@ class Details extends Component {
 
     render() {
         return(
-            <>
-             <button onClick={this.returnToHome}>Homepage</button>
-              {/* {JSON.stringify(this.props.reduxState.details)} */}
-
+            <div>
+                <button onClick={this.returnToHome}>Homepage</button>
                 <h2>Description</h2>
-              {/* this weird string of code is to prevent duplicate titles */}
-               {this.props.reduxState.details[0] && 
+                {/* this weird string of code is to prevent duplicate titles */}
+                {this.props.reduxState.details[0] && 
                 <p>{this.props.reduxState.details[0].description}</p>}
 
                 <h2>Genre</h2>
-             {this.props.reduxState.details.map((deets) => {
+                {this.props.reduxState.details.map((deets) => {
                 return <Genre deets={deets} key={deets.id}/>})}
-       
-            </>
+            </div>
         )
     }
 }
